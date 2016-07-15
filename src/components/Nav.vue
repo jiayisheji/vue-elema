@@ -1,16 +1,5 @@
 <template>
-  <nav class="v-nav nav-transition">
-    <ul>
-      <li class="v-link-active"><a v-link="{name: 'index'}">首页</a></li>
-      <li><a v-link="{name: 'fulltime'}">社会招聘</a></li>
-      <li><a v-link="{name: 'intern'}">实习生招聘</a></li>
-      <li><a href="http://campus.ele.me" target="_blank">校园招聘</a></li>
-      <li>公司介绍</li>
-      <li>个人中心</li>
-      <li>登录</li>
-    </ul>
-  </nav>
-  <div class="nav-mask nav-transition"></div>
+
 </template>
 
 <script>
@@ -64,7 +53,7 @@ export default {
         background-color: rgba(0,0,0,.4);
     }
 
-    .mask-transition,.nav-transition {
+    .nav-transition,.nav-transition {
         -webkit-transition: .2s linear;
         transition: .2s linear;
     }

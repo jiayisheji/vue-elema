@@ -15,7 +15,6 @@ export default {
     },
     'methods': {
         'search': function(value) {
-            console.log(value);
             this.$route.router.go({
                 'name': 'fulltime',
                 'replace': true

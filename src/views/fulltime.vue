@@ -8,13 +8,11 @@
 import jySearch from '../components/Search';
 import jyHeader from '../components/Header';
 import jyLoading from '../components/Loading';
-import jyNav from '../components/Nav';
 import jyJoblist from '../components/joblist';
 
 export default {
     'components': {
         jyHeader,
-        jyNav,
         jySearch,
         jyJoblist,
         jyLoading

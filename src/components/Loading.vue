@@ -1,13 +1,23 @@
 <template>
-  <div class="indicator pop-fade-transition d-popup d-popup-center">
-    <span class="indicator-text"></span>
-    <span class="indicator-spin"></span>
-  </div>
+    <div class="indicator" v-show="visible" transition="pop-fade">
+        <span class="indicator-text" v-show="text">{{ text }}</span>
+        <span class="indicator-spin"></span>
+    </div>
 </template>
 
 <script>
 export default {
-
+    data() {
+        return {
+            'visible': false
+        };
+    },
+    ready() {
+        this.visible = true;
+    },
+    beforeDestory() {
+        this.visible = false;
+    }
 };
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="joblist-wrapper">
     <div class="joblist">
-        <div class="joblist-item" v-for="item in itmes.data | filterBy 'a' in 'category'" v-on:click="goDetail(item._id)">
+        <div class="joblist-item" v-for="item in itmes.data | filterBy 'a' in 'category'" v-on:click="goDetail(item._id,item)">
             <h3 class="joblist-name">{{item.name}} <span class="joblist-hot" v-if="item.hot">HOT</span> </h3>
             <p class="joblist-city">{{item.city}}</p>
             <p class="joblist-addition">
@@ -28,12 +28,16 @@ export default {
         jyFooter
     },
     'methods': {
-        'goDetail': function(id) {
-            console.log(id);
+        'goDetail': function(id, item) {
             this.$route.router.go({
                 'name': 'job',
-                'params': { 'id': id },
-                'replace': true
+                'query': {
+                    'id': id,
+                    'name': item.name,
+                    'headcount': item.headcount,
+                    'city': item.city,
+                    'createAt': item.meta.createAt
+                }
             });
         }
     }

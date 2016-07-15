@@ -1,7 +1,7 @@
 <template>
   <div class="category-wrapper">
     <div class="category-container">
-      <div class="category" v-on:click="gojobs(item.value)" v-for="item in itmes" style="background-image: url({{item.image}});">
+      <div class="category" v-on:click="gojobs(item.value)" v-for="item in itmes" v-bind:style="{'background-image': 'url(' + item.image + ')' }">
         <h3 class="category-title">{{item.title}}</h3>
         <p class="category-description">{{item.description}}</p>
       </div>
@@ -62,8 +62,7 @@ export default {
     'methods': {
         'gojobs': function(value) {
             this.$route.router.go({
-                'name': 'fulltime',
-                'replace': true
+                'name': 'fulltime'
             });
         }
     }

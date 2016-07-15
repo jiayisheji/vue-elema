@@ -16,8 +16,7 @@ export default {
     ready() {
         setTimeout(() => {
             this.$route.router.go({
-                'name': 'index',
-                'replace': true
+                'name': 'index'
             });
         }, 1500);
     }

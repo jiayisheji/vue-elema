@@ -3,22 +3,24 @@
         <jy-header></jy-header>
         <jy-search></jy-search>
         <jy-category></jy-category>
+        <jy-loading></jy-loading>
+        <jy-footer></jy-footer>
     </div>
 </template>
 
 <script>
-import jySearch from '../components/Search';
 import jyHeader from '../components/Header';
-import jyLoading from '../components/Loading';
+import jySearch from '../components/Search';
 import jyCategory from '../components/Category';
-import jyNav from '../components/Nav';
+import jyFooter from '../components/Footer';
+import jyLoading from '../components/Loading';
 
 export default {
     'components': {
         jyHeader,
-        jyNav,
         jySearch,
         jyCategory,
+        jyFooter,
         jyLoading
     }
 };

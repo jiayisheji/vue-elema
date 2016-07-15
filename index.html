@@ -34,15 +34,16 @@
             height: 100%;
         }
         .fade-transition {
-          transition: opacity .3s ease;
+            -webkit-transition: opacity .3s ease;
+            transition: opacity .3s ease;
         }
         .fade-enter, .fade-leave {
-          opacity: 0;
+            opacity: 0;
         }
     </style>
   </head>
   <body>
-    <router-view transition="fade" transition-mode="out-in" keep-alive></router-view>
+    <router-view :is="view" transition="fade" transition-mode="in-out"></router-view>
     <!-- built files will be auto injected -->
   </body>
 </html>
