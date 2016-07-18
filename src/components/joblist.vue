@@ -1,8 +1,20 @@
 <template>
   <div class="joblist-wrapper">
     <div class="joblist">
-        <div class="joblist-item" v-for="item in itmes.data | filterBy 'a' in 'category'" v-on:click="goDetail(item._id,item)">
+        <div class="joblist-item" v-for="item in items" track-by="_id" v-on:click="goDetail(item._id,item)">
             <h3 class="joblist-name">{{item.name}} <span class="joblist-hot" v-if="item.hot">HOT</span> </h3>
+            <p class="joblist-city">{{item.city | city}}</p>
+            <p class="joblist-addition">
+                <span class="joblist-headcount">{{item.headcount}}人</span>
+                <time class="joblist-time">发布时间: {{item.meta.createAt | date}}</time>
+            </p>
+        </div>
+    </div>
+    <div class="void" v-if="!items.length">
+        <p class="void-note">没有找到相应的岗位哦！</p>
+        <p class="void-title">当前热招</p>
+        <div class="joblist-item" v-for="item in voids" track-by="_id" v-on:click="goDetail(item._id,item)">
+            <h3 class="joblist-name">{{item.name}}</h3>
             <p class="joblist-city">{{item.city | city}}</p>
             <p class="joblist-addition">
                 <span class="joblist-headcount">{{item.headcount}}人</span>
@@ -16,12 +28,36 @@
 <script>
 import jySearch from './Search';
 import jyFooter from './Footer';
+import store from '../vuex/store';
+
 
 export default {
+    store,
+    'vuex': {
+        'getters': {
+            'getList': function(state) {
+                console.log('getList', state);
+                return state.stateList;
+            },
+            'getHotList': function(state) {
+                console.log('getHotList', state);
+                return state.stateHotList;
+            }
+        }
+    },
     data() {
         return {
-            'itmes': require('../data/jobs.json')
+            'items': this.getList,
+            'voids': this.getHotList
         };
+    },
+    'computed': {
+        'items': function() {
+            return store.state.stateList;
+        },
+        'voids': function() {
+            return store.state.stateHotList;
+        }
     },
     'components': {
         jySearch,

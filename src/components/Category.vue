@@ -1,7 +1,7 @@
 <template>
   <div class="category-wrapper">
     <div class="category-container">
-      <div class="category" v-on:click="gojobs(item.value)" v-for="item in itmes" v-bind:style="{'background-image': 'url(' + item.image + ')' }">
+      <div class="category" v-on:click="goToCategory(item)" v-for="item in itmes" v-bind:style="{'background-image': 'url(' + item.image + ')' }">
         <h3 class="category-title">{{item.title}}</h3>
         <p class="category-description">{{item.description}}</p>
       </div>
@@ -13,8 +13,15 @@
 <script>
 import jySearch from './Search';
 import jyFooter from './Footer';
+import store from '../vuex/store';
+import { queryCategory } from '../vuex/actions';
 
 export default {
+    'vuex': {
+        'actions': {
+            'setCategory': queryCategory
+        }
+    },
     data() {
         return {
             'itmes': [{
@@ -55,12 +62,14 @@ export default {
             }]
         };
     },
+    store,
     'components': {
         jySearch,
         jyFooter
     },
     'methods': {
-        'gojobs': function(value) {
+        'goToCategory': function(value) {
+            this.setCategory(value);
             this.$route.router.go({
                 'name': 'fulltime'
             });

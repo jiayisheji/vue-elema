@@ -24,6 +24,7 @@ routerConfig(router);
 
 router.start({}, 'body');
 
+
 // Filters
 Vue.filter('date', filters.dateFilter);
 Vue.filter('category', filters.categoryFilter);

@@ -6,19 +6,40 @@
 </template>
 
 <script>
+import store from '../vuex/store';
+import { querySearch } from '../vuex/actions';
+
 export default {
+    store,
+    'vuex': {
+        'actions': {
+            'setSearch': querySearch
+        },
+        'getters': {
+            'getSearch': function(state) {
+                console.log('getSearch', state);
+                return state.stateQuery;
+            }
+        }
+    },
     data() {
         return {
-            'jobsname': '',
+            'jobsname': this.getSearch,
             'image': require('../assets/search-icon.png')
         };
     },
     'methods': {
         'search': function(value) {
+            this.setSearch(value);
             this.$route.router.go({
-                'name': 'fulltime',
-                'replace': true
+                'name': 'fulltime'
             });
+        }
+    },
+    'route': {
+        'data': function(transition) {
+            console.log('transition', transition);
+            transition.next();
         }
     }
 };
