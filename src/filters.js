@@ -1,3 +1,4 @@
+import Data from './data/data';
 /*
     补零函数
  */
@@ -36,3 +37,18 @@ export const dateFilter = (time, type) => {
     }
     return result;
 };
+
+/*
+    职业列表
+ */
+export const categoryFilter = type => type && Data.category[type].name;
+
+/*
+    部门列表
+ */
+export const departmentFilter = type => type && Data.department[type];
+
+/*
+    城市列表
+ */
+export const cityFilter = type => type && Data.city[type].name;

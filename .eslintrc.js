@@ -234,6 +234,7 @@ module.exports = {
     'global-require': 0,
     "object-shorthand": ["error", "always", { "avoidQuotes": true }],
     'func-names':[2, "never"],
+    'max-len': 0,
     'no-param-reassign': ["error", { "props": false }],
     "quote-props": ["error", "as-needed", { "keywords": true, "unnecessary": false, "numbers": true}],
     //禁止使用debugger语句

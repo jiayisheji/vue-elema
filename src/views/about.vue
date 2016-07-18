@@ -13,8 +13,8 @@
             <div class="content">
                 <router-view></router-view>
             </div>
+            <jy-footer></jy-footer>
         </div>
-        <jy-footer></jy-footer>
     </div>
 </template>
 
@@ -62,7 +62,12 @@ export default {
     },
     ready() {
         this.jumbotron = this.about[this.$route.name];
-        console.log(this.about);
+    },
+    'route': {
+        'data': function(transition) {
+            transition.next();
+            this.jumbotron = this.about[transition.to.name];
+        }
     }
 };
 </script>

@@ -2,6 +2,7 @@
     <jy-header></jy-header>
     <jy-search></jy-search>
     <jy-joblist></jy-joblist>
+    <jy-loading></jy-loading>
 </template>
 
 <script>

@@ -4,9 +4,9 @@
         <img v-bind:src="image" alt="logo" class="header-logo" v-link="{'name':'index'}">
         <div class="close" v-on:click="open()"><span class="close-icon" v-bind:class="{'open':isOpen}"></span></div>
     </header>
-    <nav v-if="isOpen" class="v-nav" transition="nva">
+    <nav v-if="isOpen" class="v-nav" transition="nav">
         <ul>
-            <li class="v-link-active" v-link="{name: 'index'}">首页</li>
+            <li v-link="{name: 'index'}">首页</li>
             <li v-link="{name: 'fulltime'}">社会招聘</li>
             <li v-link="{name: 'intern'}">实习生招聘</li>
             <li v-link="{name: 'school'}">校园招聘</li>

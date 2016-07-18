@@ -14,18 +14,18 @@
         <p>“有菜”于2015年6月起试营业，其核心理念是利用互联网技术，在公开透明的平台机制下，直接将产地、一级批发商和餐厅连接，消除传统餐饮供应链中诸多不必要的中间环节，从根本上降低餐厅原材料的采购价格。目前，“有菜”平台已覆盖北京、上海、广州、深圳、杭州、无锡、苏州、福州等8个国内主要城市，日交易额突破800万元。</p>
         <h3>发展大事记</h3>
         <h5>目光永远向前，梦想依然延续</h5>
-            <ul class="content-develop">
-                <li class="content-year">
-                    <span>2008</span>
-                    <ul>
-                        <li>
-                            <span class="content-month"></span>
-                            <span class="content-event">张旭豪、康嘉等人创立饿了么</span>
-                        </li>
-                    </ul>
-                </li>
-                <li class="content-year">
-                    <span>2009</span> <ul> <li> <span class="content-month">4月</span> <span class="content-event">饿了么网站正式上线</span> </li><li> <span class="content-month">9月</span> <span class="content-event">推出餐厅运营一体化解决方案——NAPOS系统</span> </li><li> <span class="content-month">10月</span> <span class="content-event">日均订单突破1000单</span> </li> </ul> </li><li class="content-year"> <span>2010</span> <ul> <li> <span class="content-month">6月</span> <span class="content-event">推出超时赔付体系，建立行业新标准</span> </li><li> <span class="content-month">11月</span> <span class="content-event">手机网页订餐平台上线</span> </li> </ul> </li><li class="content-year"> <span>2011</span> <ul> <li> <span class="content-month">7月</span> <span class="content-event">成立北京分公司、杭州分公司</span> </li><li> <span class="content-month">12月</span> <span class="content-event">日均订单突破1万单</span> </li> </ul> </li><li class="content-year"> <span>2012</span> <ul> <li> <span class="content-month">3月</span> <span class="content-event">成立广州分公司、天津分公司</span> </li><li> <span class="content-month">4月</span> <span class="content-event">饿了么APP上线</span> </li><li> <span class="content-month">9月</span> <span class="content-event">率先推出在线支付功能，以及餐厅超级结算系统</span> </li><li> <span class="content-month">12月</span> <span class="content-event">日交易额突破300万元</span> </li> </ul> </li><li class="content-year"> <span>2013</span> <ul> <li> <span class="content-month">3月</span> <span class="content-event">成立苏州分公司，哈尔滨分公司，福州分公司</span> </li><li> <span class="content-month">10月</span> <span class="content-event">成立深圳分公司，南京分公司，长春分公司，厦门分公司</span> </li><li> <span class="content-month">11月</span> <span class="content-event">完成2500万美元C轮融资</span> </li> </ul> </li><li class="content-year"> <span>2014</span> <ul> <li> <span class="content-month">5月</span> <span class="content-event">完成8000万美元D轮融资，由大众点评投资，双方达成深度战略合作</span> </li><li> <span class="content-month">9月</span> <span class="content-event">公司员工超过2000人，在线订餐服务覆盖全国近200个城市，用户量1000万，加盟餐厅近18万家，日均订单超过100万单。</span> </li> </ul> </li><li class="content-year"> <span>2015</span> <ul> <li> <span class="content-month">1月</span> <span class="content-event">完成3.5亿美元E轮融资</span> </li><li> <span class="content-month">6月</span> <span class="content-event">供应链平台“有菜”上线</span> </li><li> <span class="content-month">8月</span> <span class="content-event">成立即时配送平台；获6.3亿美元融资，创全球外卖行业单笔融资金额最高记录</span> </li><li> <span class="content-month">9月</span> <span class="content-event">外卖交易平台日交易额突破7500万元</span> </li><li> <span class="content-month">11月</span> <span class="content-event">自营配送队伍超过6000人，标准人效达每人每天35单，蜂鸟团队及众包配送员超过50万人，覆盖全国300多个城市；获滴滴战略入股，双方共同搭建两轮电动车加四轮汽车的“2+4”同城配送网络</span> </li><li> <span class="content-month">12月</span> <span class="content-event">外卖交易平台日交易额突破1亿元，日订单量突破330万单，覆盖全国超过300个城市；即时配送平台日配送订单突破100万单；供应链平台日交易额突破800万元</span> </li> </ul> </li> </ul> </div>
+        <ul class="content-develop">
+            <li class="content-year" v-for="year in about.develop">
+                <span>{{year.year}}</span>
+                <ul>
+                    <li v-for="month in year.month">
+                        <span class="content-month">{{month.date}}</span>
+                        <span class="content-event">{{month.event}}</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script>
@@ -33,10 +33,145 @@
 export default {
     data() {
         return {
+            'about': {
+                'develop': [
+                    {
+                        'year': 2008,
+                        'month': [
+                            {
+                                'date': '',
+                                'event': '张旭豪、康嘉等人创立饿了么'
+                            }
+                        ]
+                    },
+                    {
+                        'year': 2009,
+                        'month': [
+                            {
+                                'date': '4月',
+                                'event': '饿了么网站正式上线'
+                            },
+                            {
+                                'date': '9月',
+                                'event': '推出餐厅运营一体化解决方案——NAPOS系统'
+                            },
+                            {
+                                'date': '10月',
+                                'event': '日均订单突破1000单'
+                            }
+                        ]
+                    },
+                    {
+                        'year': 2010,
+                        'month': [
+                            {
+                                'date': '6月',
+                                'event': '推出超时赔付体系，建立行业新标准'
+                            },
+                            {
+                                'date': '11月',
+                                'event': '手机网页订餐平台上线'
+                            }
+                        ]
+                    },
+                    {
+                        'year': 2011,
+                        'month': [
+                            {
+                                'date': '7月',
+                                'event': '成立北京分公司、杭州分公司'
+                            },
+                            {
+                                'date': '12月',
+                                'event': '日均订单突破1万单'
+                            }
+                        ]
+                    },
+                    {
+                        'year': 2012,
+                        'month': [
+                            {
+                                'date': '3月',
+                                'event': '成立广州分公司、天津分公司'
+                            },
+                            {
+                                'date': '4月',
+                                'event': '饿了么APP上线'
+                            },
+                            {
+                                'date': '9月',
+                                'event': '率先推出在线支付功能，以及餐厅超级结算系统'
+                            },
+                            {
+                                'date': '12月',
+                                'event': '日交易额突破300万元'
+                            }
+                        ]
+                    },
+                    {
+                        'year': 2013,
+                        'month': [
+                            {
+                                'date': '3月',
+                                'event': '成立苏州分公司，哈尔滨分公司，福州分公司'
+                            },
+                            {
+                                'date': '10月',
+                                'event': '成立深圳分公司，南京分公司，长春分公司，厦门分公司'
+                            },
+                            {
+                                'date': '11月',
+                                'event': '完成2500万美元C轮融资'
+                            }
+                        ]
+                    },
+                    {
+                        'year': 2014,
+                        'month': [
+                            {
+                                'date': '5月',
+                                'event': '完成8000万美元D轮融资，由大众点评投资，双方达成深度战略合作'
+                            },
+                            {
+                                'date': '9月',
+                                'event': '公司员工超过2000人，在线订餐服务覆盖全国近200个城市，用户量1000万，加盟餐厅近18万家，日均订单超过100万单。'
+                            }
+                        ]
+                    },
+                    {
+                        'year': 2015,
+                        'month': [
+                            {
+                                'date': '1月',
+                                'event': '完成3.5亿美元E轮融资'
+                            },
+                            {
+                                'date': '6月',
+                                'event': '供应链平台“有菜”上线'
+                            },
+                            {
+                                'date': '8月',
+                                'event': '成立即时配送平台；获6.3亿美元融资，创全球外卖行业单笔融资金额最高记录'
+                            },
+                            {
+                                'date': '9月',
+                                'event': '外卖交易平台日交易额突破7500万元'
+                            },
+                            {
+                                'date': '11月',
+                                'event': '自营配送队伍超过6000人，标准人效达每人每天35单，蜂鸟团队及众包配送员超过50万人，覆盖全国300多个城市；获滴滴战略入股，双方共同搭建两轮电动车加四轮汽车的“2+4”同城配送网络'
+                            },
+                            {
+                                'date': '12月',
+                                'event': '外卖交易平台日交易额突破1亿元，日订单量突破330万单，覆盖全国超过300个城市；即时配送平台日配送订单突破100万单；供应链平台日交易额突破800万元'
+                            }
+                        ]
+                    }
+                ]
+            }
         };
     },
     ready() {
-
     }
 };
 </script>

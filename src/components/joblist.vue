@@ -3,7 +3,7 @@
     <div class="joblist">
         <div class="joblist-item" v-for="item in itmes.data | filterBy 'a' in 'category'" v-on:click="goDetail(item._id,item)">
             <h3 class="joblist-name">{{item.name}} <span class="joblist-hot" v-if="item.hot">HOT</span> </h3>
-            <p class="joblist-city">{{item.city}}</p>
+            <p class="joblist-city">{{item.city | city}}</p>
             <p class="joblist-addition">
                 <span class="joblist-headcount">{{item.headcount}}人</span>
                 <time class="joblist-time">发布时间: {{item.meta.createAt | date}}</time>
@@ -34,9 +34,11 @@ export default {
                 'query': {
                     'id': id,
                     'name': item.name,
+                    'department': item.department,
+                    'category': item.category,
                     'headcount': item.headcount,
                     'city': item.city,
-                    'createAt': item.meta.createAt
+                    'createAt': new Date(item.meta.createAt).getTime()
                 }
             });
         }

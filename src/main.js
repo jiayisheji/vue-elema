@@ -26,3 +26,6 @@ router.start({}, 'body');
 
 // Filters
 Vue.filter('date', filters.dateFilter);
+Vue.filter('category', filters.categoryFilter);
+Vue.filter('department', filters.departmentFilter);
+Vue.filter('city', filters.cityFilter);

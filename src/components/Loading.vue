@@ -1,5 +1,5 @@
 <template>
-    <div class="indicator" v-show="visible" transition="pop-fade">
+    <div class="indicator d-popup d-popup-center" v-show="$loadingRouteData" transition="pop-fade">
         <span class="indicator-text" v-show="text">{{ text }}</span>
         <span class="indicator-spin"></span>
     </div>
@@ -14,6 +14,13 @@ export default {
     },
     ready() {
         this.visible = true;
+    },
+    'route': {
+        'data': function(transition) {
+            transition.next({
+                message: 'data fetched!'
+            });
+        }
     },
     beforeDestory() {
         this.visible = false;

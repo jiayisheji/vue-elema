@@ -6,12 +6,12 @@
                 <div class="jobdetail-title">
                     <h2>{{jobdetail.name}}</h2>
                     <div class="jobdetail-misc">
-                        <span>部门: {{jobdetail.headcount}}</span>
-                        <span>城市: {{jobdetail.city}}</span>
+                        <span>部门: {{jobdetail.department | department}}</span>
+                        <span>城市: {{jobdetail.city | city}}</span>
                         <span>人数: {{jobdetail.headcount}}</span>
                         <span>公司: 饿了么</span>
-                        <span>类别: {{jobdetail.headcount}}</span>
-                        <span>发布: {{jobdetail.createAt}}</span>
+                        <span>类别: {{jobdetail.category | category}}</span>
+                        <span>发布: {{jobdetail.createAt | date}}</span>
                     </div>
                 </div>
                 <div class="jobdetail-description">
@@ -42,6 +42,7 @@ import jyHeader from '../components/Header';
 /*
     格式化参数
 */
+
 const format = value => {
     const result = {};
     let temp;
@@ -51,7 +52,7 @@ const format = value => {
             if (i.split('=')[0] === 'name') {
                 result[i.split('=')[0]] = window.decodeURI(i.split('=')[1]);
             } else if (i.split('=')[0] === 'createAt') {
-                result[i.split('=')[0]] = i.split('=')[1].split('T')[0];
+                result[i.split('=')[0]] = i.split('=')[1] * 1;
             } else {
                 result[i.split('=')[0]] = i.split('=')[1];
             }
