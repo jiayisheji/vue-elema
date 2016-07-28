@@ -37,7 +37,7 @@ export default {
         'getters': {
             'getList': function(state) {
                 console.log('getList', state);
-                return state.stateList;
+                return state.stateFullTimeList;
             },
             'getHotList': function(state) {
                 console.log('getHotList', state);
@@ -53,7 +53,7 @@ export default {
     },
     'computed': {
         'items': function() {
-            return store.state.stateList;
+            return store.state.stateFullTimeList;
         },
         'voids': function() {
             return store.state.stateHotList;

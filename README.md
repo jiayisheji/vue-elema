@@ -44,6 +44,7 @@ npm test
 2. vue社区          http://www.vue-js.com/
 3. vue-router文档   http://router.vuejs.org/zh-cn/index.html
 4. vuex文档         http://vuex.vuejs.org/zh-cn/intro.html
+5. vue表单验证      https://github.com/vuejs/vue-validator
 
 ## 迭代
 ### 1.0.1 项目搭建
@@ -94,3 +95,13 @@ npm test
 3. 新写vuex相关文件管理数据
 4. 搜索框还有一个bug，目标是首页输入内容提交到社会招聘页面带输入内容，其他页面输入内容只在当前显示，切换页面以后不再显示，明天在研究一下。
 5. 接下来要写社会招聘里面筛选
+
+### 1.0.4 做一个登陆页面表单验证
+> 最近工作忙，vue-validator有中英版本的文档，栗子很全，写的很多，很快都写
+
+
+
+#### 目前进度：
+
+1. 新写了几个自定义表单验证器
+2. 写一个登陆页面

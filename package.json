@@ -18,6 +18,7 @@
     "vue": "^1.0.21",
     "vue-resource": "^0.9.1",
     "vue-router": "^0.7.13",
+    "vue-validator": "^2.1.5",
     "vuex": "^0.8.0"
   },
   "devDependencies": {

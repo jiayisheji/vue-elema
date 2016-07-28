@@ -6,11 +6,13 @@ import Jobs from '../data/jobs.json';
 Vue.use(Vuex);
 
 const sortData = Jobs.data.filter(item => item.hot).concat(Jobs.data.filter(item => !item.hot));
-
+const fullTimeData = sortData.filter(item => !item.practice);
+const internData = Jobs.data.filter(item => item.practice);
 // 创建一个对象来保存应用启动时的初始状态
 const state = {
     // TODO: 放置初始状态
-    'stateList': sortData || [],
+    'stateFullTimeList': fullTimeData || [],
+    'stateInternList': internData || [],
     'stateHotList': [],
     'stateQuery': ''
 };
@@ -20,14 +22,13 @@ console.log(state);
 const mutations = {
     // TODO: 放置我们的状态变更函数
     SETCATEGORY(a, b) {
-        a.stateList = sortData.filter(item => item.category === b.value);
-        a.stateHotList = a.stateList.length ? [] : sortData.filter((item, index) => index < 5);
+        a.stateFullTimeList = fullTimeData.filter(item => item.category === b.value);
+        a.stateHotList = a.stateFullTimeList.length ? [] : fullTimeData.filter((item, index) => index < 5);
     },
     SETSEARCH(a, b) {
         a.stateQuery = b;
-        a.stateList = sortData.filter(item => item.name.indexOf(b) > -1);
-        a.stateHotList = a.stateList.length ? [] : sortData.filter((item, index) => index < 5);
-        console.log(a.stateHotList);
+        a.stateFullTimeList = fullTimeData.filter(item => item.name.indexOf(b) > -1);
+        a.stateHotList = a.stateFullTimeList.length ? [] : fullTimeData.filter((item, index) => index < 5);
     }
 };
 
