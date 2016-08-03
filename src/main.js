@@ -16,7 +16,6 @@ Vue.use(VueRouter);
 
 const router = new VueRouter({
     hashbang: true,
-    history: true,
     saveScrollPosition: true,
     suppressTransitionError: true
 });
